@@ -25,14 +25,14 @@ public class tesertes : MonoBehaviour
     {
         yield return new WaitForSeconds(2f); // Waits for 2 seconds
         bottle1.PourInto(bottle2);
-        Debug.Log("It did the pouring after 2 seconds");
+        Debug.Log("It did the pouring after 5 seconds");
     }
 
     private IEnumerator EvenMoreDelayedPour()
     {
         yield return new WaitForSeconds(10f); // Waits for 10 seconds
         bottle2.PourInto(bottle3);
-        Debug.Log("It did the pouring after 10 seconds");
+        Debug.Log("It did the pouring after 5 seconds");
     }
 
     void Update()

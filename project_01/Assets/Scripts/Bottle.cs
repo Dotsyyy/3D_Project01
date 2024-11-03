@@ -6,13 +6,12 @@ public class Bottle : MonoBehaviour
     public List<GameObject> liquidLayers;  // Tracks the color of each liquid layer
     public int maxLayers = 4;              // Max liquid layers in the bottle
     public List<Material> materialsLiquids;
-
-    private Material nothingMaterial;
+    public Material targetMaterial;
+    public Material nothingMaterial;
 
     void Start()
     {
-        // Assuming the "nothing" material is the last one in materialsLiquids
-        nothingMaterial = materialsLiquids[materialsLiquids.Count - 1];
+        
         Debug.Log($"{gameObject.name}: Initialized with nothingMaterial set to {nothingMaterial.name}");
     }
 

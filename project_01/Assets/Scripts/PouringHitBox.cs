@@ -1,0 +1,98 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PouringHitBox : MonoBehaviour
+{
+    public Bottle bottle;
+    private float pourAngleThreshold = 80f;
+    public float rayDistance = 2f; // Adjust distance as needed
+    private Vector3 initialPosition;
+    private Quaternion initialRotation;
+
+    void Start()
+    {
+        // Store the initial position and rotation
+        initialPosition = transform.position;
+        initialRotation = transform.rotation;
+    }
+
+    void Update()
+    {
+        if (IsInOriginalPosition() && CheckForPouring())
+        {
+            PerformPouring();
+        }
+    }
+
+    private bool IsInOriginalPosition()
+    {
+        // Check if the bottle is in its original position and rotation
+        return transform.position == initialPosition && transform.rotation == initialRotation;
+    }
+
+    private bool CheckForPouring()
+    {
+        RaycastHit hit;
+        Vector3 rayDirection = transform.forward;
+
+        if (Physics.Raycast(transform.position, rayDirection, out hit, rayDistance))
+        {
+            Bottle targetBottle = hit.collider.GetComponent<Bottle>();
+
+            if (targetBottle != null)
+            {
+                float angle = GetPouringAngle(targetBottle.gameObject);
+                Debug.Log($"{targetBottle.gameObject.name} hit the ray with an angle of {angle} degrees.");
+
+                if (IsPouringAngle(targetBottle.gameObject))
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    private void PerformPouring()
+    {
+        RaycastHit hit;
+        Vector3 rayDirection = transform.forward;
+
+        if (Physics.Raycast(transform.position, rayDirection, out hit, rayDistance))
+        {
+            Bottle targetBottle = hit.collider.GetComponent<Bottle>();
+
+            if (targetBottle != null)
+            {
+                targetBottle.PourInto(bottle);
+                Debug.Log($"Poured into {targetBottle.gameObject.name}");
+            }
+        }
+    }
+
+    private bool IsPouringAngle(GameObject pouringObject)
+    {
+        float angle = GetPouringAngle(pouringObject);
+        return angle <= pourAngleThreshold;
+    }
+
+    private float GetPouringAngle(GameObject pouringObject)
+    {
+        // Get the world direction representing "pouring" relative to the initial prefab orientation
+        Vector3 pouringDirection = pouringObject.transform.forward;
+
+        // Calculate the angle between the pouring direction and downward
+        float angle = Vector3.Angle(pouringDirection, Vector3.down);
+
+        return angle;
+    }
+
+    void OnDrawGizmos()
+    {
+        // Visualize the ray in the editor
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(transform.position, transform.forward * rayDistance);
+    }
+}

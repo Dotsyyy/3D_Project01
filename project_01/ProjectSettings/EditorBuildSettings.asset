@@ -4,7 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Chemie.unity
+    guid: 94b43fcc6f4b64a49904001d1fcc5784
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 5cba748e8a8c5f54d8a784c916f86b75, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 265924488cee19447a1feee06cd77ff1, type: 2}
