@@ -1,7 +1,8 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class ChemieGameManager : MonoBehaviour
 {
     public List<Bottle> bottles; // List of all bottles in the game
 
