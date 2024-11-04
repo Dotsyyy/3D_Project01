@@ -5,13 +5,19 @@ using UnityEngine;
 public class ChemieGameManager : MonoBehaviour
 {
     public List<Bottle> bottles; // List of all bottles in the game
+    public List<GameObject> colours;
+    public List<GameObject> numbers;
+    public float swapDuration = 1f; // Duration of the swap in seconds
+
+    private bool hasSwapped = false; // Flag to ensure swapping only happens once
 
     void Update()
     {
-        if (CheckWinCondition())
+        if (CheckWinCondition() && !hasSwapped)
         {
             Debug.Log("Congratulations! You won the game!");
-            // Add any additional win logic here
+            StartCoroutine(SwapPositions());
+            hasSwapped = true; // Set the flag to true to prevent further swaps
         }
     }
 
@@ -53,5 +59,47 @@ public class ChemieGameManager : MonoBehaviour
 
         // Returns true if all visible layers are the target color (or if the bottle is empty)
         return true;
+    }
+
+    // Coroutine to swap positions of colours and numbers
+    private IEnumerator SwapPositions()
+    {
+        List<Vector3> initialColorPositions = new List<Vector3>();
+        List<Vector3> initialNumberPositions = new List<Vector3>();
+
+        for (int i = 0; i < colours.Count && i < numbers.Count; i++)
+        {
+            initialColorPositions.Add(colours[i].transform.position);
+            initialNumberPositions.Add(numbers[i].transform.position);
+        }
+
+        float elapsedTime = 0;
+
+        while (elapsedTime < swapDuration)
+        {
+            float t = elapsedTime / swapDuration;
+
+            for (int i = 0; i < colours.Count && i < numbers.Count; i++)
+            {
+                Vector3 colorTargetPosition = new Vector3(initialColorPositions[i].x, initialColorPositions[i].y, initialNumberPositions[i].z);
+                Vector3 numberTargetPosition = new Vector3(initialNumberPositions[i].x, initialNumberPositions[i].y, initialColorPositions[i].z);
+
+                colours[i].transform.position = Vector3.Lerp(initialColorPositions[i], colorTargetPosition, t);
+                numbers[i].transform.position = Vector3.Lerp(initialNumberPositions[i], numberTargetPosition, t);
+            }
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        for (int i = 0; i < colours.Count && i < numbers.Count; i++)
+        {
+            // Ensure final positions are exactly swapped on the Z-axis
+            Vector3 colorTargetPosition = new Vector3(initialColorPositions[i].x, initialColorPositions[i].y, initialNumberPositions[i].z);
+            Vector3 numberTargetPosition = new Vector3(initialNumberPositions[i].x, initialNumberPositions[i].y, initialColorPositions[i].z);
+
+            colours[i].transform.position = colorTargetPosition;
+            numbers[i].transform.position = numberTargetPosition;
+        }
     }
 }
