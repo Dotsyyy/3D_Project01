@@ -15,7 +15,7 @@ public class PaperPlacer : MonoBehaviour
     void StackPapersInBox()
     {
         // Get the bounds of the box
-        Bounds boxBounds = box.GetComponent<Renderer>().bounds;
+        Bounds boxBounds = box.GetComponent<Collider>().bounds;
 
         // Start stacking at the bottom center of the box
         Vector3 startPosition = new Vector3(
@@ -32,8 +32,8 @@ public class PaperPlacer : MonoBehaviour
 
         for (int i = 0; i < numberOfPapers; i++)
         {
-            // Instantiate a new paper object at the current position
-            Instantiate(paperPrefab, currentPosition, Quaternion.identity);
+            // Instantiate a new paper object at the current position with a 90-degree rotation on the x-axis
+            Instantiate(paperPrefab, currentPosition, Quaternion.Euler(90, 0, 0));
 
             // Move the position in the X-axis for the next paper
             currentPosition.x += paperWidth;
