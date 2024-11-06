@@ -9,17 +9,32 @@ public class PouringHitBox : MonoBehaviour
     public float rayDistance = 2f; // Adjust distance as needed
     private Vector3 initialPosition;
     private Quaternion initialRotation;
+    private bool isInitialized = false;
 
     void Start()
     {
-        // Store the initial position and rotation
+        // Start the initialization coroutine
+        StartCoroutine(InitializePosition());
+    }
+
+    private IEnumerator InitializePosition()
+    {
+        // Wait for 1 or 2 seconds before capturing position and rotation
+        yield return new WaitForSeconds(1f); // You can adjust the time here
+
+        // Store the initial position and rotation after the wait
         initialPosition = transform.position;
         initialRotation = transform.rotation;
+
+        // Set the flag to true
+        isInitialized = true;
+        Debug.Log("Initial position and rotation set.");
     }
 
     void Update()
     {
-        if (IsInOriginalPosition() && CheckForPouring())
+        // Only proceed if initialization is done
+        if (isInitialized && IsInOriginalPosition() && CheckForPouring())
         {
             PerformPouring();
         }
