@@ -28114,6 +28114,65 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.15307613, y: 0.029295933, z: 1.3040445}
   m_Center: {x: 0.028582623, y: 0.025200138, z: 0.05306109}
+--- !u!1 &1122104201
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1122104203}
+  - component: {fileID: 1122104202}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1122104202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122104201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41189dfd463f9db4c9cda8f98dc5426d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: pouringSound
+    clip: {fileID: 8300000, guid: d2d3073f990035144aa99548ba1b2beb, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 0
+    is3D: 1
+    source: {fileID: 0}
+  - name: codeAppears
+    clip: {fileID: 8300000, guid: b1e85bbfb26f8214c9d871e556de1023, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 0
+    is3D: 0
+    source: {fileID: 0}
+--- !u!4 &1122104203
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122104201}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1122453291
 GameObject:
   m_ObjectHideFlags: 0
@@ -53331,6 +53390,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 2033275598}
+  - {fileID: 1122104203}
   - {fileID: 897566062}
   - {fileID: 1840116434}
   - {fileID: 1028861645}
