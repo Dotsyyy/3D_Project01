@@ -16,11 +16,12 @@ public class Chemie_Win_Checker : MonoBehaviour
         {
             //right material
             anim.SetBool("youWon", true);
+            SoundManager.Instance.PlayAtPosition("trueSound", transform.position);
         }
         if (inTrigger && paperRenderer.material.color != winMaterial.color)
         {
             //wrong material
-
+            SoundManager.Instance.PlayAtPosition("wrongSound", transform.position);
         }
     }
 

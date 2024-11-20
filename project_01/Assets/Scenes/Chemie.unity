@@ -22098,6 +22098,20 @@ MonoBehaviour:
     loop: 0
     is3D: 0
     source: {fileID: 0}
+  - name: trueSound
+    clip: {fileID: 8300000, guid: bbd94b331099fda4b9dcc18ada2daeb0, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    is3D: 0
+    source: {fileID: 0}
+  - name: wrongSound
+    clip: {fileID: 8300000, guid: dc10fe20dacea464bb15ee279e151d36, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    is3D: 0
+    source: {fileID: 0}
 --- !u!4 &1122104203
 Transform:
   m_ObjectHideFlags: 0
@@ -39006,7 +39020,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 173855b0367d17d4f8b60b34e7260f41, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.737
+      value: 0.818
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 173855b0367d17d4f8b60b34e7260f41, type: 3}
       propertyPath: m_LocalPosition.y
