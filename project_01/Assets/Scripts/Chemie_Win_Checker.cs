@@ -14,9 +14,17 @@ public class Chemie_Win_Checker : MonoBehaviour
     {
         if (inTrigger && paperRenderer.material.color == winMaterial.color)
         {
+            //right material
             anim.SetBool("youWon", true);
         }
+        if (inTrigger && paperRenderer.material.color != winMaterial.color)
+        {
+            //wrong material
+
+        }
     }
+
+
 
     private void OnTriggerEnter(Collider other)
     {

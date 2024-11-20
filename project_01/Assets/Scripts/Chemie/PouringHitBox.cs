@@ -82,6 +82,7 @@ public class PouringHitBox : MonoBehaviour
             if (targetBottle != null)
             {
                 targetBottle.PourInto(bottle);
+                SoundManager.Instance.PlayAtPosition("pouringSound", transform.position);
                 Debug.Log($"Poured into {targetBottle.gameObject.name}");
             }
         }

@@ -31,7 +31,9 @@ public class ChemieGameManager : MonoBehaviour
                 return false;
             }
         }
+        SoundManager.Instance.Play("codeAppears");
         return true;
+        
     }
 
     // Determines if all visible layers in a bottle match its target color

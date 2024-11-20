@@ -56,6 +56,7 @@ public class SoundManager : MonoBehaviour
             Debug.LogWarning($"Sound: {name} not found!");
             return;
         }
+        Debug.Log($"Playing sound: {name}");
         s.source.Play();
     }
 
@@ -68,6 +69,7 @@ public class SoundManager : MonoBehaviour
             Debug.LogWarning($"Sound: {name} not found!");
             return;
         }
+        Debug.Log($"Stopping sound: {name}");
         s.source.Stop();
     }
 
@@ -81,6 +83,12 @@ public class SoundManager : MonoBehaviour
             return;
         }
 
+        Debug.Log($"Playing sound at position: {name}");
         AudioSource.PlayClipAtPoint(s.clip, position, s.volume);
+    }
+
+    public void TestIfWork()
+    {
+        SoundManager.Instance.Play("codeAppears");
     }
 }

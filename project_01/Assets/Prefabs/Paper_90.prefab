@@ -201,6 +201,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bb7a18306d8c71f43854bed26207f903, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5183526489336453338}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bb7a18306d8c71f43854bed26207f903, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5603426736460395419}
   m_SourcePrefab: {fileID: 100100000, guid: bb7a18306d8c71f43854bed26207f903, type: 3}
 --- !u!4 &7038031267043810258 stripped
 Transform:
@@ -261,3 +264,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5603426736460395419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7703350578244305256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2756c251a8363df4f9d4b30ee6414bd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _activeState: {fileID: 0}
+  _interactableFilters: []
+  _candidateTiebreaker: {fileID: 0}
+  _maxIterationsPerFrame: 3
+  _data: {fileID: 0}
+  _pointableElement: {fileID: 6416801920212464775}
+  _rigidbody: {fileID: 5183526489336453338}
+  _distanceThreshold: 0.01
+  _snapPoseTransform: {fileID: 0}
+  _defaultInteractable: {fileID: 0}
+  _timeOutInteractable: {fileID: 0}
+  _timeOut: 0
