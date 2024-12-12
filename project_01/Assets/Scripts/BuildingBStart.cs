@@ -3,7 +3,8 @@ using UnityEngine;
 public class BuildingBStart : MonoBehaviour
 {
     public TutorialManager tutorialManager;
-    public 
+    public GameObject gebouwB;
+    public GameObject door;
 
     void Update()
     {
