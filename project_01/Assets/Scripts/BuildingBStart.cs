@@ -1,15 +1,16 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BuildingBStart : MonoBehaviour
 {
     public TutorialManager tutorialManager;
-    public 
+    public GameObject buildingB;
+    public string sceneName = "Chemie";
+    public MonoBehaviour outlineScript;
 
     void Update()
     {
         if (!CanProceed()) return;
-
-
     }
 
     // Centralized check method
@@ -27,29 +28,19 @@ public class BuildingBStart : MonoBehaviour
     }
 
     // Example method that depends on the tutorial being finished
-    public void ExampleMethod()
+    public void loadScene()
     {
         if (!CanProceed()) return;
-
-        // Your method logic here
-        Debug.Log("Executing ExampleMethod logic.");
+        SceneManager.LoadScene(sceneName);
     }
 
-    // Another example method
-    public void AnotherMethod()
-    {
-        if (!CanProceed()) return;
-
-        // Your method logic here
-        Debug.Log("Executing AnotherMethod logic.");
-    }
 
     // Method to be called by the button
-    public void ButtonClicked()
+    public void GebouwClicked()
     {
         if (!CanProceed()) return;
 
-        // Logic to be executed when the button is clicked and the tutorial is finished
-        Debug.Log("ButtonClicked logic executed.");
+        buildingB.SetActive(true);
+        outlineScript.enabled = true;
     }
 }
