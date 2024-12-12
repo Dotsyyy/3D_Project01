@@ -6,6 +6,7 @@ public class TextManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> textObjects; // List of text objects to display in sequence
     private int currentIndex = 0;
+    [SerializeField] private float delayBetweenTexts = 2.0f; // Time in seconds between text objects
 
     void Start()
     {
@@ -58,7 +59,7 @@ public class TextManager : MonoBehaviour
         }
     }
 
-    // Coroutine to wait for the TypeWriter effect to complete
+    // Coroutine to wait for the TypeWriter effect to complete and then delay
     private IEnumerator WaitForCompletion(TypeWriter typeWriter)
     {
         // Wait until the TypeWriter effect is finished
@@ -68,6 +69,11 @@ public class TextManager : MonoBehaviour
         }
 
         Debug.Log("TypeWriter effect finished for: " + textObjects[currentIndex - 1].name);
+
+        // Wait for the specified delay
+        yield return new WaitForSeconds(delayBetweenTexts);
+
+        Debug.Log("Delay completed, deactivating current and activating next text object");
 
         // Deactivate the current text object
         textObjects[currentIndex - 1].SetActive(false);
