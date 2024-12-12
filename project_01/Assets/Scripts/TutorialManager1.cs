@@ -23,6 +23,7 @@ public class TutorialManager : MonoBehaviour
 
     public bool buildingTaskIsDone;
     public bool carTaskIsDone;
+    public bool tutorialIsFinished;
 
     void Start()
     {
@@ -40,6 +41,11 @@ public class TutorialManager : MonoBehaviour
         CheckSection(buildingNotDoneSection, buildingIsDoneSection, 0f, buildingTaskIsDone);
         CheckSection(buildingIsDoneSection, carNotDoneSection, 1.5f);
         CheckSection(carNotDoneSection, carIsDoneSection, 0f, carTaskIsDone);
+
+        if (carTaskIsDone && !tutorialIsFinished)
+        {
+            StartCoroutine(EndTutorialAfterDelay(3f));
+        }
     }
 
     void InitializeSection(TextSection section)
@@ -108,5 +114,12 @@ public class TutorialManager : MonoBehaviour
         {
             section.MainText.SetActive(true);
         }
+    }
+
+    private IEnumerator EndTutorialAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        tutorialIsFinished = true;
+        Debug.Log("Tutorial is finished.");
     }
 }

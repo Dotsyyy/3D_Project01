@@ -1857,6 +1857,7 @@ MonoBehaviour:
     delayTimer: 0
   buildingTaskIsDone: 0
   carTaskIsDone: 0
+  tutorialIsFinished: 0
 --- !u!4 &131612357
 Transform:
   m_ObjectHideFlags: 0
@@ -21720,18 +21721,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 8544783548360615147}
-        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
-        m_MethodName: set_material
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: 22142ce5471758b4a91573e411c9953f, type: 2}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   _whenUnselect:
     m_PersistentCalls:
       m_Calls: []
@@ -31295,6 +31284,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   otherCube: {fileID: 802911105}
   tutorialManager: {fileID: 131612356}
+  positionTolerance: 0.1
+  rotationTolerance: 5
 --- !u!114 &1975811833
 MonoBehaviour:
   m_ObjectHideFlags: 0
