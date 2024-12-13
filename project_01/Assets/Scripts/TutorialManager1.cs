@@ -44,7 +44,7 @@ public class TutorialManager : MonoBehaviour
 
         if (carTaskIsDone && !tutorialIsFinished)
         {
-            StartCoroutine(EndTutorialAfterDelay(3f));
+            StartCoroutine(EndTutorialAfterDelay(6f));
         }
     }
 
