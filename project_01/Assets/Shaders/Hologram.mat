@@ -135,18 +135,18 @@ Material:
     - _SrcBlend: 5
     - _SrcBlendAlpha: 1
     - _Surface: 1
-    - _VertexOffset: 0
+    - _VertexOffset: 0.02
     - _WorkflowMode: 1
     - _ZTest: 4
     - _ZWrite: 0
     - _ZWriteControl: 0
-    - _fresnel_power: 0.08
+    - _fresnel_power: 0.03
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _fresnal_color: {r: 0.20576, g: 0.52376133, b: 0.6377357, a: 1}
-    - _scanlineTiling: {r: 1, g: 1, b: 0, a: 0}
+    - _scanlineTiling: {r: 0, g: 1, b: 0, a: 0}
     - _scanlinespeed: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
