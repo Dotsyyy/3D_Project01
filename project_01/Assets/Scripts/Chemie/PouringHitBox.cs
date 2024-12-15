@@ -7,9 +7,11 @@ public class PouringHitBox : MonoBehaviour
     public Bottle bottle;
     private float pourAngleThreshold = 80f;
     public float rayDistance = 2f; // Adjust distance as needed
+    public float soundCooldown = 2f; // Cooldown time in seconds between sound triggers
     private Vector3 initialPosition;
     private Quaternion initialRotation;
     private bool isInitialized = false;
+    private float lastSoundTime = 0f; // Tracks the last time the sound was played
 
     void Start()
     {
@@ -82,8 +84,12 @@ public class PouringHitBox : MonoBehaviour
             if (targetBottle != null)
             {
                 targetBottle.PourInto(bottle);
-                SoundManager.Instance.PlayAtPosition("pouringSound", transform.position);
-                Debug.Log($"Poured into {targetBottle.gameObject.name}");
+                if (Time.time - lastSoundTime >= soundCooldown)
+                {
+                    SoundManager.Instance.PlayAtPosition("pouringSound", transform.position);
+                    lastSoundTime = Time.time; // Update the last sound play time
+                    Debug.Log($"Poured into {targetBottle.gameObject.name} and played sound.");
+                }
             }
         }
     }

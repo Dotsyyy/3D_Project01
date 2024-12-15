@@ -189,7 +189,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8946382183036810996, guid: f8b34074379037e4699262d0c8c16bed, type: 3}
   m_PrefabInstance: {fileID: 1314492868}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7237452
+--- !u!114 &7237447
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -198,11 +198,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7237446}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e54227f84596e743af94892819756cb, type: 3}
+  m_Script: {fileID: 11500000, guid: bc1e6a7abf38cf4419dd91d0d4a12264, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScripts:
-  - {fileID: 30417772}
+  opject: {fileID: 1192723935}
 --- !u!1001 &13670114
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13968,7 +13967,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3551252031763775693, guid: f8b34074379037e4699262d0c8c16bed, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1153136160}
+      addedObject: {fileID: 1153136155}
   m_SourcePrefab: {fileID: 100100000, guid: f8b34074379037e4699262d0c8c16bed, type: 3}
 --- !u!4 &902084849 stripped
 Transform:
@@ -17706,7 +17705,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3551252031763775693, guid: f8b34074379037e4699262d0c8c16bed, type: 3}
   m_PrefabInstance: {fileID: 902084848}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1153136160
+--- !u!114 &1153136155
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -17715,11 +17714,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1153136154}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d516c8c21c3bcd4cb4cfa9cbb39ea72, type: 3}
+  m_Script: {fileID: 11500000, guid: b1bfc487f8771404fb137de9fb9327c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScripts:
-  - {fileID: 30417772}
+  opject: {fileID: 1192723935}
 --- !u!1 &1155073892
 GameObject:
   m_ObjectHideFlags: 0
@@ -18030,7 +18028,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1192723936
 Transform:
   m_ObjectHideFlags: 0
@@ -21283,8 +21281,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8946382183036810996, guid: f8b34074379037e4699262d0c8c16bed, type: 3}
-      insertIndex: 4
-      addedObject: {fileID: 7237452}
+      insertIndex: -1
+      addedObject: {fileID: 7237447}
   m_SourcePrefab: {fileID: 100100000, guid: f8b34074379037e4699262d0c8c16bed, type: 3}
 --- !u!1001 &1318902026
 PrefabInstance:
