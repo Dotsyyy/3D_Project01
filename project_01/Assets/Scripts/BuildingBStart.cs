@@ -6,7 +6,7 @@ public class BuildingBStart : MonoBehaviour
     public TutorialManager tutorialManager;
     public GameObject buildingB;
     public string sceneName = "Chemie";
-    public MonoBehaviour outlineScript;
+    public GameObject outlineBuilding;
 
     void Update()
     {
@@ -41,6 +41,6 @@ public class BuildingBStart : MonoBehaviour
         if (!CanProceed()) return;
 
         buildingB.SetActive(true);
-        outlineScript.enabled = true;
+        outlineBuilding.SetActive(true);
     }
 }

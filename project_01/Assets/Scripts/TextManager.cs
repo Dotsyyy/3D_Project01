@@ -44,7 +44,7 @@ public class TextManager : MonoBehaviour
             if (typeWriter != null)
             {
                 Debug.Log("TypeWriter component found, starting typing effect");
-                StartCoroutine(WaitForCompletion(typeWriter));
+                StartCoroutine(WaitForCompletion(typeWriter, textObjects[currentIndex]));
             }
             else
             {
@@ -59,8 +59,8 @@ public class TextManager : MonoBehaviour
         }
     }
 
-    // Coroutine to wait for the TypeWriter effect to complete and then delay
-    private IEnumerator WaitForCompletion(TypeWriter typeWriter)
+    // Coroutine to wait for the TypeWriter effect, audio to complete, and then delay
+    private IEnumerator WaitForCompletion(TypeWriter typeWriter, GameObject currentTextObject)
     {
         // Wait until the TypeWriter effect is finished
         while (!typeWriter.isFinished)
@@ -68,7 +68,20 @@ public class TextManager : MonoBehaviour
             yield return null;
         }
 
-        Debug.Log("TypeWriter effect finished for: " + textObjects[currentIndex - 1].name);
+        Debug.Log("TypeWriter effect finished for: " + currentTextObject.name);
+
+        // Wait for the audio to finish playing
+        AudioSource audioSource = currentTextObject.GetComponent<AudioSource>();
+        if (audioSource != null)
+        {
+            Debug.Log("Audio source found, waiting for audio to finish.");
+            while (audioSource.isPlaying)
+            {
+                yield return null;
+            }
+
+            Debug.Log("Audio fragment finished for: " + currentTextObject.name);
+        }
 
         // Wait for the specified delay
         yield return new WaitForSeconds(delayBetweenTexts);
@@ -76,7 +89,7 @@ public class TextManager : MonoBehaviour
         Debug.Log("Delay completed, deactivating current and activating next text object");
 
         // Deactivate the current text object
-        textObjects[currentIndex - 1].SetActive(false);
+        currentTextObject.SetActive(false);
 
         // Activate the next text object
         if (currentIndex < textObjects.Count)

@@ -37,9 +37,9 @@ public class TutorialManager : MonoBehaviour
 
     void Update()
     {
-        CheckSection(welcomeSection, buildingNotDoneSection, 1.5f);
+        CheckSection(welcomeSection, buildingNotDoneSection, 0.5f);
         CheckSection(buildingNotDoneSection, buildingIsDoneSection, 0f, buildingTaskIsDone);
-        CheckSection(buildingIsDoneSection, carNotDoneSection, 1.5f);
+        CheckSection(buildingIsDoneSection, carNotDoneSection, 0.5f);
         CheckSection(carNotDoneSection, carIsDoneSection, 0f, carTaskIsDone);
 
         if (carTaskIsDone && !tutorialIsFinished)
