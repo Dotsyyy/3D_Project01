@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 public class Bottle : MonoBehaviour
@@ -8,12 +9,16 @@ public class Bottle : MonoBehaviour
     public List<Material> materialsLiquids;
     public Material targetMaterial;
     public Material nothingMaterial;
+    public float soundCooldown = 2f;
+    private float lastSoundTime = 0f;
 
     void Start()
     {
         
         Debug.Log($"{gameObject.name}: Initialized with nothingMaterial set to {nothingMaterial.name}");
     }
+
+
 
     public Material GetTopVisibleMaterial()
     {
@@ -102,7 +107,12 @@ public class Bottle : MonoBehaviour
                 }
             }
         }
-
+        if (Time.time - lastSoundTime >= soundCooldown)
+        {
+            SoundManager.Instance.PlayAtPosition("pouringSound", transform.position);
+            lastSoundTime = Time.time; // Update the last sound play time
+            Debug.Log($"Poured into {targetBottle.gameObject.name} and played sound.");
+        }
         Debug.Log($"{gameObject.name}: Poured {layersToPour} layers of {topMaterial.name} into {targetBottle.gameObject.name}.");
     }
 

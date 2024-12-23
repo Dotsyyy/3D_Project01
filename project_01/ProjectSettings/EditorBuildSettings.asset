@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/CampusZus.unity
     guid: 2b32e26b388911a4294292f4ba250ce6
   - enabled: 1

@@ -8,10 +8,11 @@ public class PouringHitBox : MonoBehaviour
     private float pourAngleThreshold = 80f;
     public float rayDistance = 2f; // Adjust distance as needed
     public float soundCooldown = 2f; // Cooldown time in seconds between sound triggers
-    private Vector3 initialPosition;
-    private Quaternion initialRotation;
     private bool isInitialized = false;
     private float lastSoundTime = 0f; // Tracks the last time the sound was played
+    public List<GameObject> allBottlesRayCasting;
+    private List<Vector3> originalPositions = new List<Vector3>();
+    private List<Quaternion> originalRotations = new List<Quaternion>();
 
     void Start()
     {
@@ -22,13 +23,14 @@ public class PouringHitBox : MonoBehaviour
     private IEnumerator InitializePosition()
     {
         // Wait for 1 or 2 seconds before capturing position and rotation
-        yield return new WaitForSeconds(1f); // You can adjust the time here
+        yield return new WaitForSeconds(4f); // You can adjust the time here
 
-        // Store the initial position and rotation after the wait
-        initialPosition = transform.position;
-        initialRotation = transform.rotation;
+        foreach (var bottle in allBottlesRayCasting) 
+        { 
+            originalPositions.Add(bottle.transform.position); 
+            originalRotations.Add(bottle.transform.rotation); 
+        }
 
-        // Set the flag to true
         isInitialized = true;
         Debug.Log("Initial position and rotation set.");
     }
@@ -44,9 +46,17 @@ public class PouringHitBox : MonoBehaviour
 
     private bool IsInOriginalPosition()
     {
-        // Check if the bottle is in its original position and rotation
-        return transform.position == initialPosition && transform.rotation == initialRotation;
+        for (int i = 0; i < allBottlesRayCasting.Count; i++)
+        {
+            if (Vector3.Distance(allBottlesRayCasting[i].transform.position, originalPositions[i]) < 0.01f &&
+                Quaternion.Angle(allBottlesRayCasting[i].transform.rotation, originalRotations[i]) < 1f)
+            {
+                return true;
+            }
+        }
+        return false;
     }
+
 
     private bool CheckForPouring()
     {
@@ -86,9 +96,7 @@ public class PouringHitBox : MonoBehaviour
                 targetBottle.PourInto(bottle);
                 if (Time.time - lastSoundTime >= soundCooldown)
                 {
-                    SoundManager.Instance.PlayAtPosition("pouringSound", transform.position);
-                    lastSoundTime = Time.time; // Update the last sound play time
-                    Debug.Log($"Poured into {targetBottle.gameObject.name} and played sound.");
+                    
                 }
             }
         }

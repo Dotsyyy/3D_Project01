@@ -10,30 +10,65 @@ public class ChemieGameManager : MonoBehaviour
     public float swapDuration = 1f; // Duration of the swap in seconds
 
     private bool hasSwapped = false; // Flag to ensure swapping only happens once
+    private List<Vector3> startPositions = new List<Vector3>(); // List to hold start positions
+    private List<Quaternion> startRotations = new List<Quaternion>(); // List to hold start rotations
+    private bool isInitialized = false;
+
+    void Start()
+    {
+        // Start the initialization coroutine
+        StartCoroutine(InitializeStartPositions());
+    }
+
+    private IEnumerator InitializeStartPositions()
+    {
+        // Wait for the specified delay before capturing start positions and rotations
+        yield return new WaitForSeconds(5f);
+
+        // Store start positions and rotations of each bottle
+        foreach (Bottle bottle in bottles)
+        {
+            startPositions.Add(bottle.transform.position);
+            startRotations.Add(bottle.transform.rotation);
+        }
+
+        isInitialized = true;
+        Debug.Log("Initial positions and rotations set.");
+    }
 
     void Update()
     {
-        if (CheckWinCondition() && !hasSwapped)
+        if (isInitialized && CheckWinCondition() && !hasSwapped)
         {
             Debug.Log("Congratulations! You won the game!");
+            SoundManager.Instance.Play("codeAppears");
             StartCoroutine(SwapPositions());
             hasSwapped = true; // Set the flag to true to prevent further swaps
         }
     }
 
-    // Checks if each bottle is filled with its target color only
+    // Checks if each bottle is at its start position and filled with its target color only
     private bool CheckWinCondition()
     {
-        foreach (Bottle bottle in bottles)
+        for (int i = 0; i < bottles.Count; i++)
         {
-            if (!IsBottleUniformWithTarget(bottle))
+            if (!IsBottleAtStartPosition(bottles[i], startPositions[i], startRotations[i]) || !IsBottleUniformWithTarget(bottles[i]))
             {
                 return false;
             }
-        }
-        SoundManager.Instance.Play("codeAppears");
+        }     
         return true;
-        
+    }
+
+    // Checks if a bottle is at its start position and rotation
+    private bool IsBottleAtStartPosition(Bottle bottle, Vector3 startPosition, Quaternion startRotation)
+    {
+        bool isAtStartPosition = Vector3.Distance(bottle.transform.position, startPosition) < 0.01f;
+        bool isAtStartRotation = Quaternion.Angle(bottle.transform.rotation, startRotation) < 1f;
+
+        Debug.Log($"{bottle.gameObject.name} is at start position: {isAtStartPosition}, is at start rotation: {isAtStartRotation}");
+
+        return isAtStartPosition && isAtStartRotation;
     }
 
     // Determines if all visible layers in a bottle match its target color
@@ -45,13 +80,13 @@ public class ChemieGameManager : MonoBehaviour
             {
                 Material currentMaterial = renderer.material;
 
-                // Skip invisible layers (those using nothingMaterial)
+                // If an invisible layer is found, the bottle is not full
                 if (currentMaterial.color == bottle.nothingMaterial.color)
                 {
-                    continue;
+                    return false; // Bottle is not completely full
                 }
 
-                // Check if the current layer's color matches the bottle's target color
+                // If a layer's color does not match the target color, it's invalid
                 if (currentMaterial.color != bottle.targetMaterial.color)
                 {
                     return false; // Mismatch found
@@ -59,9 +94,11 @@ public class ChemieGameManager : MonoBehaviour
             }
         }
 
-        // Returns true if all visible layers are the target color (or if the bottle is empty)
+        // If all layers are visible and match the target color, return true
         return true;
     }
+
+
 
     // Coroutine to swap positions of colours and numbers
     private IEnumerator SwapPositions()
