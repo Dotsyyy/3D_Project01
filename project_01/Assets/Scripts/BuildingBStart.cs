@@ -22,7 +22,6 @@ public class BuildingBStart : MonoBehaviour
         }
         else
         {
-            Debug.Log("Action cannot proceed because the tutorial is not finished.");
             return false;
         }
     }
