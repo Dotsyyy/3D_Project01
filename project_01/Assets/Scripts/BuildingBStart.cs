@@ -7,6 +7,8 @@ public class BuildingBStart : MonoBehaviour
     public GameObject buildingB;
     public string sceneName = "Chemie";
     public GameObject outlineBuilding;
+    public Animator animator;
+    private bool isPressed = false;
 
     void Update()
     {
@@ -38,8 +40,30 @@ public class BuildingBStart : MonoBehaviour
     public void GebouwClicked()
     {
         if (!CanProceed()) return;
+        if (isPressed == false)
+        {
+            buildingB.SetActive(true);
+            outlineBuilding.SetActive(true);
+            animator.SetBool("Move", true);
+        }
+        if (isPressed == true)
+        {
+            animator.SetBool("Small", true);
+        }
+        
+    }
 
-        buildingB.SetActive(true);
-        outlineBuilding.SetActive(true);
+    public void ChangeBool()
+    {
+        isPressed = true;
+    }
+
+    public void WhenEvent()
+    {
+        outlineBuilding.SetActive(false);
+        isPressed = false;
+        animator.SetBool("Move", false);
+        animator.SetBool("Small", false);
+        buildingB.SetActive(false);
     }
 }
