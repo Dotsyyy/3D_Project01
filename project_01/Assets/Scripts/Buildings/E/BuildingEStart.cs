@@ -1,11 +1,11 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class BuildingBStart : MonoBehaviour
+public class BuildingEStart : MonoBehaviour
 {
     public TutorialManager tutorialManager;
-    public GameObject buildingB;
-    public string sceneName = "Chemie";
+    public GameObject building;
+    public string sceneName = "Library";
     public GameObject outlineBuilding;
     public Animator animator;
     private bool isPressed = false;
@@ -15,7 +15,6 @@ public class BuildingBStart : MonoBehaviour
         if (!CanProceed()) return;
     }
 
-    // Centralized check method
     private bool CanProceed()
     {
         if (tutorialManager != null && tutorialManager.tutorialIsFinished)
@@ -28,29 +27,29 @@ public class BuildingBStart : MonoBehaviour
         }
     }
 
-    // Example method that depends on the tutorial being finished
     public void loadScene()
     {
         if (!CanProceed()) return;
         SceneManager.LoadScene(sceneName);
     }
 
-
-    // Method to be called by the button
     public void GebouwClicked()
     {
         if (!CanProceed()) return;
-        if (isPressed == false)
+
+        if (!BuildingManager.instance.isAnyBuildingActive)
         {
-            buildingB.SetActive(true);
+            // Activate building
+            building.SetActive(true);
             outlineBuilding.SetActive(true);
             animator.SetBool("Move", true);
+            BuildingManager.instance.isAnyBuildingActive = true;
+            isPressed = true;
         }
-        if (isPressed == true)
+        else if (isPressed)
         {
             animator.SetBool("Small", true);
         }
-        
     }
 
     public void ChangeBool()
@@ -64,6 +63,7 @@ public class BuildingBStart : MonoBehaviour
         isPressed = false;
         animator.SetBool("Move", false);
         animator.SetBool("Small", false);
-        buildingB.SetActive(false);
+        building.SetActive(false);
+        BuildingManager.instance.isAnyBuildingActive = false;
     }
 }
