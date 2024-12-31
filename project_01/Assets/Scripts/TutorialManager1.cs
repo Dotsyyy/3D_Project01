@@ -24,6 +24,8 @@ public class TutorialManager : MonoBehaviour
     public bool buildingTaskIsDone;
     public bool carTaskIsDone;
     public bool tutorialIsFinished;
+    public GameObject allText;
+    public AudioListener audioListener;
 
     void Start()
     {
@@ -121,5 +123,23 @@ public class TutorialManager : MonoBehaviour
         yield return new WaitForSeconds(delay);
         tutorialIsFinished = true;
         Debug.Log("Tutorial is finished.");
+    }
+
+
+    //buttons
+    public void TutorialSkip()
+    {
+        tutorialIsFinished = true;
+        allText.SetActive(false);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
+    public void Mute()
+    {
+        audioListener.enabled = false;
     }
 }
