@@ -14,6 +14,10 @@ public class ChemieGameManager : MonoBehaviour
     private List<Quaternion> startRotations = new List<Quaternion>(); // List to hold start rotations
     private bool isInitialized = false;
 
+    public HintManager hintManager;
+    public Animator stokjesAnimator;
+    public List<GameObject> stokjes;
+
     void Start()
     {
         // Start the initialization coroutine
@@ -44,6 +48,14 @@ public class ChemieGameManager : MonoBehaviour
             SoundManager.Instance.Play("codeAppears");
             StartCoroutine(SwapPositions());
             hasSwapped = true; // Set the flag to true to prevent further swaps
+            hintManager.waterBool();
+
+            foreach  (GameObject stok in stokjes)
+            {
+                stok.SetActive(true);
+            }
+
+            stokjesAnimator.SetBool("Move",true);
         }
     }
 

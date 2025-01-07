@@ -9,6 +9,8 @@ public class PHIndicator : MonoBehaviour
     private float timer = 0f;
     public float requiredTimeInCube = 3f; // Time required inside the large cube to trigger color change
 
+    public HintManager hintManager;
+
     void Start()
     {
         // Start without assigning any material because we will change it dynamically
@@ -26,6 +28,7 @@ public class PHIndicator : MonoBehaviour
             if (timer >= requiredTimeInCube)
             {
                 paperRenderer.material = sourMaterial;
+                hintManager.liquidBool();
             }
         }
     }
