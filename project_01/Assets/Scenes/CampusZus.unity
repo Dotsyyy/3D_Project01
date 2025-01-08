@@ -3016,11 +3016,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 125965510}
+  - component: {fileID: 125965517}
   - component: {fileID: 125965516}
   - component: {fileID: 125965515}
   - component: {fileID: 125965514}
   - component: {fileID: 125965513}
-  - component: {fileID: 125965512}
   - component: {fileID: 125965511}
   m_Layer: 0
   m_Name: ButtonVisual
@@ -3037,13 +3037,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 125965509}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -1, w: 0.00000058114523}
+  m_LocalPosition: {x: -0, y: -0.0153, z: -0.0027225092}
+  m_LocalScale: {x: 0.32345, y: 2.4713843, z: 0.17831662}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 67204939}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
 --- !u!114 &125965511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3167,29 +3167,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     ColorTime: 0.1
---- !u!114 &125965512
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 125965509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a0ad4ecf30771d44bf163058922924b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _editor: {fileID: 125965513}
-  _width: 0.1
-  _height: 0.1
-  _color: {r: 1, g: 1, b: 1, a: 1}
-  _borderColor: {r: 0, g: 0, b: 0, a: 1}
-  _radiusTopLeft: 0
-  _radiusTopRight: 0
-  _radiusBottomLeft: 0
-  _radiusBottomRight: 0
-  _borderInnerRadius: 0
-  _borderOuterRadius: 0
 --- !u!114 &125965513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3215,7 +3192,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 125965509}
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -1550514412580984892, guid: fc80ce28764cd4d4b991c4d475687f32, type: 3}
 --- !u!114 &125965515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3250,7 +3227,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d9665615562752448b5140038771d26c, type: 2}
+  - {fileID: 2100000, guid: 145eb52c3d1a90040a6943c245ffcacb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3272,6 +3249,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &125965517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125965509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbc6ccc4e26c93447a41aa2e220c849f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverHeight: 0.01
+  hoverSpeed: 2
+  rotationSpeed: 0
 --- !u!1 &126143505
 GameObject:
   m_ObjectHideFlags: 0
