@@ -9,7 +9,7 @@ public class Bottle : MonoBehaviour
     public List<Material> materialsLiquids;
     public Material targetMaterial;
     public Material nothingMaterial;
-    public float soundCooldown = 2f;
+    public float soundCooldown = 0f;
     private float lastSoundTime = 0f;
 
     void Start()
