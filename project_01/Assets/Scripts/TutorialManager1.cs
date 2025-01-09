@@ -15,6 +15,8 @@ public class TutorialManager : MonoBehaviour
         [HideInInspector] public float delayTimer; // Timer voor de vertraging
     }
 
+    
+
     public TextSection welcomeSection;
     public TextSection buildingNotDoneSection;
     public TextSection buildingIsDoneSection;
@@ -26,6 +28,11 @@ public class TutorialManager : MonoBehaviour
     public bool tutorialIsFinished;
     public GameObject allText;
     public AudioListener audioListener;
+    public MonoBehaviour highlightScript;
+    public GameObject highlight;
+
+    private bool isMuted = false; // Tracks the current mute state
+    private bool isCooldown = false; // Tracks if the button is in cooldown
 
     void Start()
     {
@@ -131,6 +138,8 @@ public class TutorialManager : MonoBehaviour
     {
         tutorialIsFinished = true;
         allText.SetActive(false);
+        highlightScript.enabled = false;
+        highlight.SetActive(false);
     }
 
     public void Quit()
@@ -140,6 +149,22 @@ public class TutorialManager : MonoBehaviour
 
     public void Mute()
     {
-        audioListener.enabled = false;
+        if (isCooldown) return; // Prevent action if cooldown is active
+
+        // Toggle the mute state
+        isMuted = !isMuted;
+
+        // Enable or disable the AudioListener based on the new state
+        audioListener.enabled = !isMuted;
+
+        // Start the cooldown coroutine
+        StartCoroutine(Cooldown(1f)); // 1-second delay
+    }
+
+    private IEnumerator Cooldown(float delay)
+    {
+        isCooldown = true; // Activate cooldown
+        yield return new WaitForSeconds(delay); // Wait for the specified time
+        isCooldown = false; // Deactivate cooldown
     }
 }
