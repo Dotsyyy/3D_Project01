@@ -11,9 +11,9 @@ public class ButtonManager : MonoBehaviour
 
     private void Start()
     {
-        // Ensure the AudioListener is enabled at the start
-        audioListener.enabled = true;
-        isMuted = false;
+        //// Ensure the AudioListener is enabled at the start
+        //audioListener.enabled = true;
+        //isMuted = false;
     }
 
     public void ResetScene()
@@ -28,23 +28,23 @@ public class ButtonManager : MonoBehaviour
 
     public void Mute()
     {
-        if (isCooldown) return; // Prevent action if cooldown is active
+        //if (isCooldown) return; // Prevent action if cooldown is active
 
-        // Toggle the mute state
-        isMuted = !isMuted;
+        //// Toggle the mute state
+        //isMuted = !isMuted;
 
         // Enable or disable the AudioListener based on the new state
-        audioListener.enabled = !isMuted;
+        audioListener.enabled = false;
 
-        // Start the cooldown coroutine
-        StartCoroutine(Cooldown(1f)); // 1-second delay
+        //// Start the cooldown coroutine
+        //StartCoroutine(Cooldown(1f)); // 1-second delay
     }
 
-    private IEnumerator Cooldown(float delay)
-    {
-        isCooldown = true; // Activate cooldown
-        yield return new WaitForSeconds(delay); // Wait for the specified time
-        isCooldown = false; // Deactivate cooldown
-    }
+    //private IEnumerator Cooldown(float delay)
+    //{
+    //    isCooldown = true; // Activate cooldown
+    //    yield return new WaitForSeconds(delay); // Wait for the specified time
+    //    isCooldown = false; // Deactivate cooldown
+    //}
 }
 
