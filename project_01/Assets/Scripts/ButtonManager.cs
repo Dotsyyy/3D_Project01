@@ -14,6 +14,7 @@ public class ButtonManager : MonoBehaviour
         // Ensure the AudioListener is enabled at the start
         audioListener.enabled = true;
         isMuted = false;
+
     }
 
     public void ResetScene()
@@ -46,5 +47,10 @@ public class ButtonManager : MonoBehaviour
         yield return new WaitForSeconds(delay); // Wait for the specified time
         isCooldown = false; // Deactivate cooldown
     }
-}
 
+    private IEnumerator ReloadSceneAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay); // Wait for the specified time
+        SceneManager.LoadScene("Chemie");
+    }
+}

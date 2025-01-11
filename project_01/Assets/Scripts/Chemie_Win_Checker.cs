@@ -21,6 +21,7 @@ public class Chemie_Win_Checker : MonoBehaviour
                 anim.SetBool("youWon", true);
                 SoundManager.Instance.PlayAtPosition("trueSound", transform.position);
                 soundPlayed = true; // Mark the sound as played
+                Timer.instance.StopTimer();
             }
             else if (paperRenderer.material.color != winMaterial.color && !soundPlayed)
             {
