@@ -15,8 +15,8 @@ public class ChemieGameManager : MonoBehaviour
     private bool isInitialized = false;
 
     public HintManager hintManager;
-    public Animator stokjesAnimator;
     public List<GameObject> stokjes;
+    public Animator anim;
 
     void Start()
     {
@@ -55,7 +55,7 @@ public class ChemieGameManager : MonoBehaviour
                 stok.SetActive(true);
             }
 
-            stokjesAnimator.SetBool("Move",true);
+            anim.SetBool("Deksel", true);
         }
     }
 
