@@ -35,7 +35,9 @@ public class ButtonManager : MonoBehaviour
         isMuted = !isMuted;
 
         // Enable or disable the AudioListener based on the new state
-        audioListener.enabled = !isMuted;
+        AudioListener.pause = isMuted;
+
+        Debug.Log($"Audio is now {(isMuted ? "muted" : "unmuted")}.");
 
         // Start the cooldown coroutine
         StartCoroutine(Cooldown(1f)); // 1-second delay
