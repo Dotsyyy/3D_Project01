@@ -50,14 +50,14 @@ public class ChemieGameManager : MonoBehaviour
             hasSwapped = true; // Set the flag to true to prevent further swaps
             hintManager.waterBool();
 
-            foreach  (GameObject stok in stokjes)
+            anim.SetBool("Deksel", true);
+            foreach (GameObject stok in stokjes)
             {
                 stok.SetActive(true);
-            }
-
-            anim.SetBool("Deksel", true);
+            }            
         }
     }
+
 
     // Checks if each bottle is at its start position and filled with its target color only
     private bool CheckWinCondition()

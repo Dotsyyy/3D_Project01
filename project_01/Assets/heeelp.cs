@@ -4,11 +4,8 @@ using UnityEngine;
 
 public class heeelp : MonoBehaviour
 {
-
     public TutorialManager tutorialManager;
-    public GameObject staticText;
     public GameObject helpText;
-
 
     void Update()
     {
@@ -17,27 +14,20 @@ public class heeelp : MonoBehaviour
 
     private bool CanProceed()
     {
-        if (tutorialManager != null && tutorialManager.tutorialIsFinished)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return tutorialManager != null && tutorialManager.tutorialIsFinished;
     }
 
     public void Heeelp()
     {
         if (!CanProceed()) return;
 
-        staticText.SetActive(false);
         helpText.SetActive(true);
+        StartCoroutine(HideHelpTextAfterDelay());
+    }
 
-        //after 6 seconds
-
-        staticText.SetActive(true);
+    private IEnumerator HideHelpTextAfterDelay()
+    {
+        yield return new WaitForSeconds(6f); // Wait for 6 seconds
         helpText.SetActive(false);
-
     }
 }

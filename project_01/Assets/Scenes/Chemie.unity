@@ -5305,7 +5305,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Kloppen de kleuren in de reageerbuizen.
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8988b3653c85bf742acf3b0c6b168d6a, type: 2}
   m_sharedMaterial: {fileID: 2847863903477035152, guid: 8988b3653c85bf742acf3b0c6b168d6a, type: 2}
@@ -8182,7 +8182,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Is dit wel het juiste woord?
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8988b3653c85bf742acf3b0c6b168d6a, type: 2}
   m_sharedMaterial: {fileID: 2847863903477035152, guid: 8988b3653c85bf742acf3b0c6b168d6a, type: 2}
@@ -10515,7 +10515,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Wat zou het periodiek systeem voor u betekenen?
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8988b3653c85bf742acf3b0c6b168d6a, type: 2}
   m_sharedMaterial: {fileID: 2847863903477035152, guid: 8988b3653c85bf742acf3b0c6b168d6a, type: 2}
@@ -19740,11 +19740,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2965199309470939333, guid: f8b34074379037e4699262d0c8c16bed, type: 3}
       propertyPath: m_fontSize
-      value: 34
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2965199309470939333, guid: f8b34074379037e4699262d0c8c16bed, type: 3}
       propertyPath: m_fontSizeBase
-      value: 34
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3056816213630667036, guid: f8b34074379037e4699262d0c8c16bed, type: 3}
       propertyPath: m_audioClip
@@ -31978,7 +31978,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Wat zou je kunnen meten in de maatbekers?
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8988b3653c85bf742acf3b0c6b168d6a, type: 2}
   m_sharedMaterial: {fileID: 2847863903477035152, guid: 8988b3653c85bf742acf3b0c6b168d6a, type: 2}
@@ -41957,7 +41957,6 @@ GameObject:
   - component: {fileID: 1408600319}
   - component: {fileID: 1408600318}
   - component: {fileID: 1408600316}
-  - component: {fileID: 1408600317}
   m_Layer: 5
   m_Name: Final
   m_TagString: Untagged
@@ -42012,8 +42011,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 34
-  m_fontSizeBase: 34
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -42054,20 +42053,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &1408600317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1408600315}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3ed7ab2328696a4baf66655b83f90c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timerText: {fileID: 1408600316}
-  finalTimeText: {fileID: 0}
 --- !u!222 &1408600318
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -42084,7 +42069,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1408600315}
   m_LocalRotation: {x: 0.0014771493, y: -0.7965804, z: -0.6045278, w: -0.0019464251}
-  m_LocalPosition: {x: 0, y: 0, z: 12857}
+  m_LocalPosition: {x: 0, y: 0, z: 13359}
   m_LocalScale: {x: 11.9, y: 11.9, z: 11.9}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -42092,7 +42077,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: -74.39, y: -180.28, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 506, y: 29776}
+  m_AnchoredPosition: {x: 506, y: 22597}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1411357637
@@ -49285,7 +49270,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Wat doen de nummers die zijn verschenen.
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8988b3653c85bf742acf3b0c6b168d6a, type: 2}
   m_sharedMaterial: {fileID: 2847863903477035152, guid: 8988b3653c85bf742acf3b0c6b168d6a, type: 2}
@@ -49539,7 +49524,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Wat ligt er op de tafel dat je nog niet hebt gebruikt?
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8988b3653c85bf742acf3b0c6b168d6a, type: 2}
   m_sharedMaterial: {fileID: 2847863903477035152, guid: 8988b3653c85bf742acf3b0c6b168d6a, type: 2}
@@ -51795,8 +51780,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Alleen de bovenste kleur mag in een ander buisje met dezelfde bovenste
-    kleur worden gegoten.
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8988b3653c85bf742acf3b0c6b168d6a, type: 2}
   m_sharedMaterial: {fileID: 2847863903477035152, guid: 8988b3653c85bf742acf3b0c6b168d6a, type: 2}
@@ -60370,7 +60354,6 @@ MonoBehaviour:
   - {fileID: 1381359085}
   swapDuration: 1
   hintManager: {fileID: 8661494479513371603}
-  stokjesAnimator: {fileID: 0}
   stokjes:
   - {fileID: 559852259}
   - {fileID: 1604081353}
@@ -60391,6 +60374,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  anim: {fileID: 1040408810}
 --- !u!114 &2033275600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66526,7 +66510,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Kijk naar de reageerbuizen voor u.
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8988b3653c85bf742acf3b0c6b168d6a, type: 2}
   m_sharedMaterial: {fileID: 2847863903477035152, guid: 8988b3653c85bf742acf3b0c6b168d6a, type: 2}
