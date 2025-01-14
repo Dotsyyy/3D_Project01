@@ -34914,7 +34914,7 @@ PrefabInstance:
     - target: {fileID: 476263293924319553, guid: f8b34074379037e4699262d0c8c16bed, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: da32145f08dc597408d5f877d54cda9a, type: 3}
+      objectReference: {fileID: 8300000, guid: 69c2d1d45f9076e41a7d776a831dd08c, type: 3}
     - target: {fileID: 478851186861226966, guid: f8b34074379037e4699262d0c8c16bed, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -35414,8 +35414,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6939975690463087201, guid: f8b34074379037e4699262d0c8c16bed, type: 3}
       propertyPath: m_text
-      value: Druk op de deur die nu gehighlight is om de puzzel van dit gebouw te
-        starten.
+      value: Druk op de deur die nu aangeduid is om de puzzel van dit gebouw te starten.
       objectReference: {fileID: 0}
     - target: {fileID: 6939975690463087201, guid: f8b34074379037e4699262d0c8c16bed, type: 3}
       propertyPath: m_fontSize
