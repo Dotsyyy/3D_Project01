@@ -8,6 +8,7 @@ public class Timer : MonoBehaviour
     public TextMeshProUGUI finalTimeText;
     private float startTime;
     private bool isRunning;
+    private float elapsedTime; // Tracks elapsed time for testing
 
     private void Awake()
     {
@@ -36,6 +37,7 @@ public class Timer : MonoBehaviour
         if (!isRunning) // Avoid resetting startTime if timer is already running
         {
             startTime = Time.time;
+            elapsedTime = 0f; // Reset elapsed time for testing
             isRunning = true;
         }
         finalTimeText.gameObject.SetActive(false); // Hide final time text initially
@@ -51,6 +53,8 @@ public class Timer : MonoBehaviour
     {
         if (isRunning)
         {
+            elapsedTime += Time.deltaTime; // Increment elapsed time
+
             float currentTime = Time.time - startTime;
             int minutes = Mathf.FloorToInt(currentTime / 60F);
             int seconds = Mathf.FloorToInt(currentTime - minutes * 60);
