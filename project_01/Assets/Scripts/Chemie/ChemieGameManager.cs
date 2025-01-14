@@ -24,6 +24,13 @@ public class ChemieGameManager : MonoBehaviour
         StartCoroutine(InitializeStartPositions());
     }
 
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
+
     private IEnumerator InitializeStartPositions()
     {
         // Wait for the specified delay before capturing start positions and rotations
@@ -153,4 +160,8 @@ public class ChemieGameManager : MonoBehaviour
             numbers[i].transform.position = numberTargetPosition;
         }
     }
+
+    
+
+
 }
